@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { UseQueryOptions, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 interface Post {
@@ -21,9 +21,14 @@ function Posts() {
     const [currentPage, setCurrentPage] = useState(0);
     const [selectedPost, setSelectedPost] = useState<Post>();
 
+    // useQuery options 설정
+    const options:Omit<UseQueryOptions<any>, any> = {   
+        staleTime : 2000 // 2초마다 만료처리 되도록 설정 (데이터의 유통기한)
+    }
+
     // 쿼리 키, 데이터를 가져오는 비동기 함수 선언(매핑하는 데이터는 fetchPosts에서 반환된 데이터가 되고 HTTP 요청에서 반환된 JSON이 된다.)
     // 구조 분해 방식
-    const { data, isError, error, isLoading } = useQuery<Post[], Error>(['posts'], fetchPosts)
+    const { data, isError, error, isLoading } = useQuery<Post[], Error>(['posts'], fetchPosts, options)
 
     // array map은 배열전용 이기 떄문에 현재 데이터가 정의되지 않았다고 나온다. 
     // fetchPosts가 비동기이기 때문에 실행 컨텍스트 관점에서 보면 비동기가 실행되기전에 해당 컴포넌트의 return가 먼저 실행되기 때문에 해당 내용이 없다고 나온다.
