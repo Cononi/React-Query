@@ -43,7 +43,7 @@ function Posts() {
             // 2초마다 만료처리 되도록 설정 (데이터의 유통기한),
             staleTime: 2000,
             /* 쿼리 키가 바뀔 때도 지난 데이터를 유지해서 혹여나 이전 페이지로 돌아갔을 때 캐시에 해당 데이터가 있도록 만들고 싶을때 주는 옵션*/
-            keepPreviousData : true
+            keepPreviousData: true
         })
 
     // array map은 배열전용 이기 떄문에 현재 데이터가 정의되지 않았다고 나온다. 
@@ -107,8 +107,6 @@ function Posts() {
             </div>
             <div>
                 <h3>나의 이야기</h3>
-                <button>삭제</button>
-                <button>타이틀 변경</button>
                 <div style={{
                     border: '1px solid black',
                 }}>
