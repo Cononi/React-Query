@@ -2,9 +2,9 @@ type CommonResult = {
     name : string
     classification: string
     average_height :string
-    skin_colors : string
-    hair_colors : string
-    eye_colors: string
+    skin_color : string
+    hair_color : string
+    eye_color: string
     average_lifespan: string
     homeworld: string
     language: string
